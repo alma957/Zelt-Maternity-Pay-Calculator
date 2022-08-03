@@ -1,10 +1,10 @@
 import "./App.css";
-import {RedundancyPayCalculator} from "./Forms/redundancyCalculator";
+import {MaternityCalculator} from "./Forms/maternityCalculator";
 import {Box} from "@mui/material";
 function App() {
   return (
     <Box>
-      <RedundancyPayCalculator />
+      <MaternityCalculator />
     </Box>
   );
 }
