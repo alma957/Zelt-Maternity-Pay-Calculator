@@ -23,20 +23,20 @@ export const OutputTable = ({earnings,validDate}:any): JSX.Element => {
             "total":Math.min(0.9*res,156.66)*33+0.9*res*6
         }
 
-      
+
     ]
 
     return (
-        
-       <Box style={{width:"100%"}}>
-        <TableContainer  component={Paper} style={{width:"50%",marginLeft:"33%",marginTop:"20px"}} >
+
+       <Box style={{width:"100%",borderRadius:"0px"}}>
+        <TableContainer  component={Paper} style={{width:"50%",marginLeft:"0%",marginTop:"20px",borderRadius:"20px"}} >
         <Table size="small">
              <TableHead>
             <TableRow style={{width:'50%'}} >
-            <TableCell  style={{fontWeight:"bold",fontSize:"x-small"}} align="left">Period</TableCell> 
-            <TableCell style={{fontWeight:"bold",fontSize:"x-small"}} align="left">Consider Earnings</TableCell> 
-            <TableCell style={{fontWeight:"bold",fontSize:"x-small"}} align="left">Total</TableCell> 
-           
+            <TableCell  style={{fontWeight:"bold",fontSize:"x-small"}} align="left">Period</TableCell>
+            <TableCell style={{fontWeight:"bold",fontSize:"x-small"}} align="left">Consider Earnings</TableCell>
+            <TableCell style={{fontWeight:"bold",fontSize:"x-small"}} align="left">Total</TableCell>
+
             </TableRow>
              </TableHead>
              <TableBody>
@@ -45,23 +45,23 @@ export const OutputTable = ({earnings,validDate}:any): JSX.Element => {
             style={{width:'70%'}}
               sx={{ '&:last-child td, &:last-child th': { border: 0,backgroundColor:"#D3D3D3",fontWeight:"bold",fontSize:"small" } }}
             >
-      
+
               <TableCell style={{}} align="left">{row.label }</TableCell>
               <TableCell style={{}} align="left">{row.earnings==="NA"?"NA":"£"+currencyFormat(roundUpAll(row.earnings as number)) }</TableCell>
               <TableCell style={{}} align="left">£{currencyFormat(roundUpAll(row.total))}</TableCell>
-              
+
             </TableRow>
           ))}
-          
+
              </TableBody>
              </Table>
-             
+
         </TableContainer>
         </Box>
-  
-    )
-        
-        
 
-    
+    )
+
+
+
+
 }

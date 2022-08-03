@@ -36,14 +36,14 @@ const labelStyle = {
 const inputStyle = {background: "white",marginLeft:"0px",width:"100%"}
 const inputSameRow = {display:"flex",FlexDirection:"row",justifyContent:"flex-start"}
  export const MaternityCalculator = ():JSX.Element=>{
-  
+
   const [inputState,setInputState] = useState<InputState>({
     expectedDueDate:"2022-01-01",
     employmentStartDate:"2022-01-01",
-    payPeriod:"Annually",
+    payPeriod:"Weekly",
     pay:500
   });
-  
+
 
   return (
     <Paper
@@ -72,10 +72,10 @@ const inputSameRow = {display:"flex",FlexDirection:"row",justifyContent:"flex-st
         value={inputState?.employmentStartDate}
       //  value={inputState.date}
         onChange={e => {
-       
+
           inputState!.employmentStartDate=e.target.value
           setInputState({...inputState})
-         
+
         }}
         //error={ErrorInputState.date !== ""}
        helperText=""
@@ -109,7 +109,7 @@ const inputSameRow = {display:"flex",FlexDirection:"row",justifyContent:"flex-st
      <Box style={{...inputSameRow,marginTop:"20px"}}>
         <FormControl style={{width:"100%"}}>
       <InputLabel size="small" style={{color: "black",fontWeight:"bold",fontSize:"95%"}} >
-          Pay period
+          Pay frequency
         </InputLabel>
         <Select
         size="small"
@@ -127,7 +127,7 @@ const inputSameRow = {display:"flex",FlexDirection:"row",justifyContent:"flex-st
           <MenuItem value="Monthly">Monthly</MenuItem>
           <MenuItem value="Weekly">Weekly</MenuItem>
           <MenuItem value="Daily">Dailz</MenuItem>
-        
+
         </Select>
         </FormControl>
           <Box style={{width:"100%",marginLeft:"20px"}}>
@@ -152,14 +152,14 @@ const inputSameRow = {display:"flex",FlexDirection:"row",justifyContent:"flex-st
         FormHelperTextProps={{
          // style: errorStyle,
         }}
-   
+
       />      </Box></Box>
-      
+
 
 <Output props={inputState} />
 
-      
-      
+
+
     </Paper>
   );
 };

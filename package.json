@@ -1,7 +1,7 @@
 {
-  "name": "zelt-redundancy-pay-calculator",
+  "name": "zelt-maternity-pay-calculator",
   "version": "0.1.0",
-  "homepage": "https://alma957.github.io/Zelt-Redundancy-Pay-Calculator",
+  "homepage": "https://alma957.github.io/Zelt-Maternity-Pay-Calculator",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.9.3",
