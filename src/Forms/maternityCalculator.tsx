@@ -113,11 +113,11 @@ const inputSameRow = {display:"flex",FlexDirection:"row",justifyContent:"flex-st
         </InputLabel>
         <Select
         size="small"
-          label="Pay Period"
+          label="Pay frequency"
           style={inputStyle}
           value={inputState?.payPeriod}
           defaultValue={"Annually"}
-          input={<OutlinedInput label="Pay period" />}
+          input={<OutlinedInput label="Pay frequency" />}
           onChange={e => {
             inputState!.payPeriod=e.target.value
           setInputState({...inputState})
