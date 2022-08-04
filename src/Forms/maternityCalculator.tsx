@@ -21,6 +21,7 @@ import "../App.css";
 import { InputState } from "./variables";
 
 import { Output } from "./output";
+
 const errorStyle = {
   color: "red",
   background: "#F2F2F7",
@@ -38,10 +39,12 @@ const inputSameRow = {display:"flex",FlexDirection:"row",justifyContent:"flex-st
  export const MaternityCalculator = ():JSX.Element=>{
 
   const [inputState,setInputState] = useState<InputState>({
-    expectedDueDate:"2022-01-01",
-    employmentStartDate:"2022-01-01",
+    expectedDueDate:new Date(new Date().getFullYear()+1,0,1).toISOString().substring(0,10),
+    employmentStartDate:new Date(new Date().getFullYear(),0,1).toISOString().substring(0,10),
+    maternityStart: new Date(new Date(new Date().getFullYear()+1,0,1).getTime()  - 1000*3600*24*7*11).toISOString().substring(0,10),
     payPeriod:"Weekly",
-    pay:500
+    pay:500,
+    lastPaySlip:new Date().toISOString().substring(0,10)
   });
 
 
@@ -65,6 +68,7 @@ const inputSameRow = {display:"flex",FlexDirection:"row",justifyContent:"flex-st
         size="small"
         style={{...inputStyle}}
         label="Employment start date"
+        error={!isValidDate(inputState.employmentStartDate)}
         InputLabelProps={{
           shrink: true,
           style: labelStyle,
@@ -88,6 +92,7 @@ const inputSameRow = {display:"flex",FlexDirection:"row",justifyContent:"flex-st
         style={{...inputStyle,marginLeft:"20px"}}
         size="small"
         label="Expected due date"
+        error={!isValidDate(inputState.expectedDueDate)}
         value={inputState?.expectedDueDate}
         InputLabelProps={{
           shrink: true,
@@ -96,6 +101,52 @@ const inputSameRow = {display:"flex",FlexDirection:"row",justifyContent:"flex-st
       //  value={inputState.date}
         onChange={e => {
           inputState!.expectedDueDate=e.target.value
+          setInputState({...inputState})
+        }}
+        helperText=""
+        //error={ErrorInputState.date !== ""}
+       // helperText={ErrorInputState.date}
+        FormHelperTextProps={{
+         style: errorStyle,
+        }}
+      />
+      <TextField
+        type="date"
+        style={{...inputStyle,marginLeft:"20px"}}
+        size="small"
+        error={!isValidDate(inputState.maternityStart)}
+        label="Maternity leave start date"
+        value={inputState?.maternityStart}
+        InputLabelProps={{
+          shrink: true,
+          style: labelStyle,
+        }}
+      //  value={inputState.date}
+        onChange={e => {
+          inputState!.maternityStart=e.target.value
+          setInputState({...inputState})
+        }}
+        helperText=""
+        //error={ErrorInputState.date !== ""}
+       // helperText={ErrorInputState.date}
+        FormHelperTextProps={{
+         style: errorStyle,
+        }}
+      />
+       <TextField
+        type="date"
+        style={{...inputStyle,marginLeft:"20px"}}
+        size="small"
+        error={!isValidDate(inputState.lastPaySlip)}
+        label="Last payslip"
+        value={inputState?.lastPaySlip}
+        InputLabelProps={{
+          shrink: true,
+          style: labelStyle,
+        }}
+      //  value={inputState.date}
+        onChange={e => {
+          inputState!.lastPaySlip=e.target.value
           setInputState({...inputState})
         }}
         helperText=""
@@ -123,10 +174,10 @@ const inputSameRow = {display:"flex",FlexDirection:"row",justifyContent:"flex-st
           setInputState({...inputState})
           }}
         >
-          <MenuItem value="Annually">Annually</MenuItem>
+
           <MenuItem value="Monthly">Monthly</MenuItem>
           <MenuItem value="Weekly">Weekly</MenuItem>
-          <MenuItem value="Daily">Dailz</MenuItem>
+
 
         </Select>
         </FormControl>
