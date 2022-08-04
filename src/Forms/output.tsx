@@ -104,7 +104,7 @@ export const Output = ({props}:any):JSX.Element=>{
     inputProps.text=!startDateValid ? "Please insert a valid employment start date" : `${formatDate(new Date(latestDateToStartWorking).toISOString().substring(0,10))} `
 
     const qualifyingEnd = calculateDate(expectedDueDate-3600*1000*24*7*16,6)
-    const qualifyingStart = calculateDate(qualifyingEnd-3600*1000*24*7,6)
+    const qualifyingStart = calculateDate(qualifyingEnd-3600*1000*24*7*8,6)
     inputProps.qualifyingWeekStart = formatDate(new Date(qualifyingStart).toISOString().substring(0,10));
     inputProps.qualifyingWeekendEnd = formatDate(new Date(qualifyingEnd).toISOString().substring(0,10));
 
