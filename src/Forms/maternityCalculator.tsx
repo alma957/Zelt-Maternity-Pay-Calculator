@@ -49,7 +49,7 @@ const inputSameRow = {display:"flex",FlexDirection:"row",justifyContent:"flex-st
     <Paper
       className="myinput"
       style={{
-        width: "95%",
+        width: "90%",
         padding: "20px",
         display: "flex",
         flexDirection: "column",
