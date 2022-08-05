@@ -7,14 +7,11 @@ import {
   FormControl,
   MenuItem,
   InputLabel,
-  InputAdornment,
+
   OutlinedInput,
-  Typography,
+
   Box,
-   Fade,
-  FormLabel,
-  Switch,
-  FormGroup,
+
 } from "@mui/material";
 
 import "../App.css";
@@ -52,7 +49,7 @@ const inputSameRow = {display:"flex",FlexDirection:"row",justifyContent:"flex-st
     <Paper
       className="myinput"
       style={{
-        width: "80%",
+        width: "95%",
         padding: "20px",
         display: "flex",
         flexDirection: "column",
@@ -63,6 +60,7 @@ const inputSameRow = {display:"flex",FlexDirection:"row",justifyContent:"flex-st
       }}
     >
     <Box style={inputSameRow}>
+
       <TextField
         type="date"
         size="small"
@@ -87,6 +85,7 @@ const inputSameRow = {display:"flex",FlexDirection:"row",justifyContent:"flex-st
          style: errorStyle,
         }}
       />
+
       <TextField
         type="date"
         style={{...inputStyle,marginLeft:"20px"}}
@@ -110,9 +109,13 @@ const inputSameRow = {display:"flex",FlexDirection:"row",justifyContent:"flex-st
          style: errorStyle,
         }}
       />
+      </Box>
+
+      <Box style={{...inputSameRow,marginTop:"20px"}}>
+
       <TextField
         type="date"
-        style={{...inputStyle,marginLeft:"20px"}}
+        style={{...inputStyle,marginLeft:"0px"}}
         size="small"
         error={!isValidDate(inputState.maternityStart)}
         label="Maternity leave start date"
@@ -156,7 +159,7 @@ const inputSameRow = {display:"flex",FlexDirection:"row",justifyContent:"flex-st
          style: errorStyle,
         }}
       />
-      </Box>
+        </Box>
      <Box style={{...inputSameRow,marginTop:"20px"}}>
         <FormControl style={{width:"100%"}}>
       <InputLabel size="small" style={{color: "black",fontWeight:"bold",fontSize:"95%"}} >
@@ -206,9 +209,9 @@ const inputSameRow = {display:"flex",FlexDirection:"row",justifyContent:"flex-st
 
       />      </Box></Box>
 
-
-<Output props={inputState} />
-
+<Box style={{marginTop:"20px"}}>
+<Output  props={inputState} />
+</Box>
 
 
     </Paper>
