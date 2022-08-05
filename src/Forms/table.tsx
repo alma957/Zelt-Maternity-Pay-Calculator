@@ -103,10 +103,10 @@ export const OutputTable = ({data,validInput}:any): JSX.Element => {
         <Table size="small">
              <TableHead>
             <TableRow style={{width:'50%',border: 0,backgroundColor:"#D3D3D3",fontWeight:"bold",fontSize:"x-small"}} >
-            <TableCell  style={{fontWeight:"bold",fontSize:"x-small"}} align="left">Date</TableCell>
-            <TableCell style={{fontWeight:"bold",fontSize:"x-small"}} align="left">Maternity pay</TableCell>
-            <TableCell style={{fontWeight:"bold",fontSize:"x-small"}} align="left">Full pay</TableCell>
-            <TableCell style={{fontWeight:"bold",fontSize:"x-small"}} align="left">Total</TableCell>
+            <TableCell  style={{fontWeight:"bold",fontSize:"small",}} align="left">Date</TableCell>
+            <TableCell style={{fontWeight:"bold",fontSize:"small"}} align="left">Maternity pay</TableCell>
+            <TableCell style={{fontWeight:"bold",fontSize:"small"}} align="left">Full pay</TableCell>
+            <TableCell style={{fontWeight:"bold",fontSize:"small"}} align="left">Total</TableCell>
 
 
             </TableRow>

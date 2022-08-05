@@ -135,7 +135,7 @@ export const Output = ({props}:any):JSX.Element=>{
     </Box>
     </Box>
         <Fade in={displayBreakdown} unmountOnExit>
-        <Box style={{marginLeft:"20px",transform:"translateX(20%)"}}>
+        <Box style={{marginLeft:"20px"}}>
 
 
         <OutputTable data={data} validInput={inputProps.validInput}/>
