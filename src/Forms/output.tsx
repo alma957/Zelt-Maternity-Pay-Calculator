@@ -1,5 +1,5 @@
-import { Box, FormLabel, IconButton, Paper, Switch, Typography } from "@mui/material";
-import { InputState, parseMonth,IconProps,payPeriodMapping } from "./variables";
+import { Box, IconButton,  Typography } from "@mui/material";
+import { InputState,IconProps,payPeriodMapping } from "./variables";
 import { isValidDate,currencyFormat,roundUpAll } from "./maternityCalculator";
 import DoneIcon from '@mui/icons-material/Done';
 import {OutputTable} from "./table"
@@ -84,7 +84,7 @@ export const Output = ({props}:any):JSX.Element=>{
     const enoughEarnings = earnings>=123 ? true:false
 
 
-        const result = !enoughEarnings ? "Your employee is not earning at least £123 per week. She is not entitled to maternity leave" : !inputProps.validInput ? "Please check your inputs" : currencyFormat(roundUpAll(earnings*0.9*6 + Math.min(156.66,earnings*0.9)*33))
+
     if(isValidDate(data.maternityStart)) {
 
     } else {

@@ -37,8 +37,8 @@ export const OutputTable = ({data,validInput}:any): JSX.Element => {
     let prevDate =new Date(new Date(state.maternityStart).getFullYear(),new Date(state.maternityStart).getMonth(),new Date(lastPaySlip).getDate()).getTime()
 
     let daysInMaternity = 0;
-    const ch = dailyMaternityPay.map(el=>new Date(el.time))
-   console.log(dailyMaternityPay)
+
+
     dailyMaternityPay.forEach((el,ind)=>
 
     {
@@ -80,8 +80,7 @@ export const OutputTable = ({data,validInput}:any): JSX.Element => {
             } else if(el.time>=nextPayingDateMonthly) {
 
                 const daysToWork = Math.round((nextPayingDateMonthly-prevDate)/(dayMill))
-                console.log("days to work ",daysToWork)
-                console.log("days In Maternity ",daysInMaternity)
+
                 values.push({"date":new Date(nextPayingDateMonthly).toString().substring(4,15),"pay":sumTemp,"adj":(daysToWork-daysInMaternity)*dailyPay})
                 sumTemp =0
                 daysInMaternity=0
@@ -91,7 +90,6 @@ export const OutputTable = ({data,validInput}:any): JSX.Element => {
             }
         }
     })
-    console.log("--------------------------------------------")
 
     values[values.length-1].adj = 0
     values.push({"pay":dailyMaternityPay.reduce((a,b)=>a+b.pay,0),"date":"Total","adj":values.reduce((a,b)=>a+b.adj,0)})
@@ -99,7 +97,7 @@ export const OutputTable = ({data,validInput}:any): JSX.Element => {
     return (
 
        <Box style={{width:"100%",borderRadius:"0px"}}>
-        <TableContainer  component={Paper} style={{width:"50%",marginLeft:"0%",marginTop:"20px",borderRadius:"0px"}} >
+        <TableContainer  component={Paper} style={{width:"80%",marginLeft:"0%",marginTop:"20px",borderRadius:"0px"}} >
         <Table size="small">
              <TableHead>
             <TableRow style={{width:'50%',border: 0,backgroundColor:"#D3D3D3",fontWeight:"bold",fontSize:"x-small"}} >
