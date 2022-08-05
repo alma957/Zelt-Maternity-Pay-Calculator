@@ -66,12 +66,12 @@ export const Output = ({props}:any):JSX.Element=>{
     let latestDateToStartWorking = calculateDate(expectedDueDate-3600*1000*24*7*41,0)
 
     inputProps.icon=startDateValid && new Date(data.employmentStartDate).getTime()<=latestDateToStartWorking ? true : false
-    inputProps.text=!startDateValid ? "Please insert a valid employment start date" : `${formatDate(new Date(latestDateToStartWorking).toString().substring(0,10))} `
+    inputProps.text=!startDateValid ? "Please insert a valid employment start date" : `${formatDate(new Date(latestDateToStartWorking).toString().substring(4,15))} `
 
     const qualifyingEnd = calculateDate(expectedDueDate-3600*1000*24*7*16,6)
     const qualifyingStart = calculateDate(qualifyingEnd-3600*1000*24*7*8,6)
-    inputProps.qualifyingWeekStart = formatDate(new Date(qualifyingStart).toString().substring(0,10));
-    inputProps.qualifyingWeekendEnd = formatDate(new Date(qualifyingEnd).toString().substring(0,10));
+    inputProps.qualifyingWeekStart = formatDate(new Date(qualifyingStart).toString().substring(4,15));
+    inputProps.qualifyingWeekendEnd = formatDate(new Date(qualifyingEnd).toString().substring(4,15));
 
 
     //let day =
@@ -82,8 +82,7 @@ export const Output = ({props}:any):JSX.Element=>{
     const earnings = data.pay * payPeriodMapping[data.payPeriod as keyof typeof payPeriodMapping]
 
     const enoughEarnings = earnings>=123 ? true:false
-    if(!enoughEarnings)
-        inputProps.validInput = false
+
 
         const result = !enoughEarnings ? "Your employee is not earning at least £123 per week. She is not entitled to maternity leave" : !inputProps.validInput ? "Please check your inputs" : currencyFormat(roundUpAll(earnings*0.9*6 + Math.min(156.66,earnings*0.9)*33))
     if(isValidDate(data.maternityStart)) {
@@ -124,7 +123,7 @@ export const Output = ({props}:any):JSX.Element=>{
     </Typography>
     </Box>
     <Box>
-    <IconButton style={{transform:displayBreakdown?"rotate(90deg)":"rotate(0deg)"}} onClick={(e)=>{
+    <IconButton style={{transform:displayBreakdown && inputProps.validInput && enoughEarnings?"rotate(90deg)":"rotate(0deg)"}} onClick={(e)=>{
         setDisplayBreakdown(!displayBreakdown)
 
     }} >
@@ -136,7 +135,7 @@ export const Output = ({props}:any):JSX.Element=>{
     </Box>
     </Box>
         <Fade in={displayBreakdown} unmountOnExit>
-        <Box style={{marginLeft:"20px"}}>
+        <Box style={{marginLeft:"20px",transform:"translateX(20%)"}}>
 
 
         <OutputTable data={data} validInput={inputProps.validInput}/>
@@ -161,11 +160,14 @@ export const Output = ({props}:any):JSX.Element=>{
 
     </IconButton >
     </Box>
+
+
     </Box>
         <Fade in={additionalInfo} unmountOnExit>
+        <Box>
         <Box style={{marginLeft:"20px"}}>
 
-            <Box sx={{ boxShadow: 5,backgroundColor:"white",marginTop:"0px",padding:"10px",borderRadius:"10px" }} style={hor}>
+        <Box sx={{ boxShadow: 5,backgroundColor:"white",marginTop:"0px",padding:"10px",borderRadius:"10px" }} style={hor}>
          <InfoIcon >
 
          </InfoIcon>
@@ -174,8 +176,42 @@ export const Output = ({props}:any):JSX.Element=>{
 
          </Typography>
          </Box>
+        <Box sx={{ boxShadow: 5,backgroundColor:"white",marginTop:"0px",padding:"10px",borderRadius:"10px" }} style={hor}>
+        <InfoIcon >
 
+         </InfoIcon>
+         <Typography style={marginLeft} >
+          {inputProps.validInput ? `Your employee must notify you by ${formatDate(new Date(new Date(data.maternityStart).getTime()-dayMill*28).toString().substring(4,15))} if she wants to start taking her SMP on ${formatDate(new Date(data.maternityStart).toString().substring(4,15))}`:"Check your inputs as we are not able to provide you with a date for when your employee should notify you"}
+
+         </Typography>
         </Box>
+        <Box sx={{ boxShadow: 5,backgroundColor:"white",marginTop:"0px",padding:"10px",borderRadius:"10px" }} style={hor}>
+        <InfoIcon >
+
+         </InfoIcon>
+         <Typography style={marginLeft} >
+
+          {inputProps.validInput ? `Earliest date to go on maternity leave: ${formatDate(new Date(new Date(data.expectedDueDate).getTime()-dayMill*7*11).toString().substring(4,15))}`:"Earliest date to go on maternity leave: Check your inputs as we are not able to provide you with a date"}
+
+         </Typography>
+        </Box>
+        <Box sx={{ boxShadow: 5,backgroundColor:"white",marginTop:"0px",padding:"10px",borderRadius:"10px" }} style={hor}>
+        <InfoIcon >
+
+         </InfoIcon>
+         <Typography style={marginLeft} >
+
+          {inputProps.validInput ? `Maternity leave automatic trigger if sick: ${formatDate(new Date(new Date(data.expectedDueDate).getTime()-dayMill*28).toString().substring(4,15))}`:"Maternity leave automatic trigger if sick: Check your inputs as we are not able to provide you with a date"}
+
+         </Typography>
+        </Box>
+
+         </Box>
+
+    </Box>
+
+
+
         </Fade>
 </Box>
 

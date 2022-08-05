@@ -15,7 +15,8 @@ export const OutputTable = ({data,validInput}:any): JSX.Element => {
     const payPeriod = state.payPeriod
     const startDate = new Date(state.maternityStart).getTime()
     const dailyPay = state.pay * payPeriodMapping[payPeriod as keyof typeof payPeriodMapping]/7
-
+    if(dailyPay*7<123)
+        return <></>
     const lastPaySlip = new Date(state.lastPaySlip)
     const lastPayDay = lastPaySlip.getDay()
     const dayMill = 3600*1000*24
@@ -98,13 +99,13 @@ export const OutputTable = ({data,validInput}:any): JSX.Element => {
     return (
 
        <Box style={{width:"100%",borderRadius:"0px"}}>
-        <TableContainer  component={Paper} style={{width:"50%",marginLeft:"0%",marginTop:"20px",borderRadius:"20px"}} >
+        <TableContainer  component={Paper} style={{width:"50%",marginLeft:"0%",marginTop:"20px",borderRadius:"0px"}} >
         <Table size="small">
              <TableHead>
-            <TableRow style={{width:'50%'}} >
-            <TableCell  style={{fontWeight:"bold",fontSize:"x-small"}} align="left">Schedule</TableCell>
-            <TableCell style={{fontWeight:"bold",fontSize:"x-small"}} align="left">Maternity Payment</TableCell>
-            <TableCell style={{fontWeight:"bold",fontSize:"x-small"}} align="left">Adjustment</TableCell>
+            <TableRow style={{width:'50%',border: 0,backgroundColor:"#D3D3D3",fontWeight:"bold",fontSize:"x-small"}} >
+            <TableCell  style={{fontWeight:"bold",fontSize:"x-small"}} align="left">Date</TableCell>
+            <TableCell style={{fontWeight:"bold",fontSize:"x-small"}} align="left">Maternity pay</TableCell>
+            <TableCell style={{fontWeight:"bold",fontSize:"x-small"}} align="left">Full pay</TableCell>
             <TableCell style={{fontWeight:"bold",fontSize:"x-small"}} align="left">Total</TableCell>
 
 
