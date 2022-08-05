@@ -98,7 +98,7 @@ export const Output = ({props}:any):JSX.Element=>{
         return (
         <Box>
 
-    <Box sx={{ boxShadow: 5,backgroundColor:"white",marginTop:"0px",padding:"10px",borderRadius:"10px" }}  style={hor}>
+    <Box sx={{ boxShadow: 3,backgroundColor:"white",marginTop:"0px",padding:"10px",borderRadius:"10px" }}  style={hor}>
         <MyIcon props={inputProps.icon as boolean}>
 
         </MyIcon>
@@ -107,7 +107,7 @@ export const Output = ({props}:any):JSX.Element=>{
          <b>Latest date to start working in order to qualify for SMP: </b>{inputProps.text}
         </Typography>
         </Box>
-        <Box sx={{ boxShadow: 5,backgroundColor:"white",marginTop:"0px",padding:"10px",borderRadius:"10px" }} style={hor}>
+        <Box sx={{ boxShadow: 3,backgroundColor:"white",marginTop:"0px",padding:"10px",borderRadius:"10px" }} style={hor}>
         <MyIcon props={enoughEarnings as boolean}>
 
         </MyIcon>
@@ -116,7 +116,7 @@ export const Output = ({props}:any):JSX.Element=>{
          <b>Minimum earnings threshold: </b>{"The employee is earning £"+currencyFormat(roundUpAll(earnings)) +` per week which is ${enoughEarnings?"above":"below"} the minimum threshold of £123 per week`}
         </Typography>
         </Box>
-    <Box sx={{ boxShadow: 5,backgroundColor:"white",marginTop:"30px",padding:"0px",borderRadius:"10px" ,display:"flex",flexDirection:"start",justifyContent:"flex-start"}}>
+    <Box sx={{ boxShadow: 3,backgroundColor:"white",marginTop:"30px",padding:"0px",borderRadius:"10px" ,display:"flex",flexDirection:"start",justifyContent:"flex-start"}}>
 
     <Box style={{}}>
     <Typography style={{color:"black",marginTop:"7px",marginLeft:"10px"}}> Payment schedule breakdown
@@ -144,7 +144,7 @@ export const Output = ({props}:any):JSX.Element=>{
 
 
 
-    <Box sx={{ boxShadow: 5,backgroundColor:"white",marginTop:"30px",padding:"0px",borderRadius:"10px" ,display:"flex",flexDirection:"start",justifyContent:"flex-start"}}>
+    <Box sx={{ boxShadow: 3,backgroundColor:"white",marginTop:"30px",padding:"0px",borderRadius:"10px" ,display:"flex",flexDirection:"start",justifyContent:"flex-start"}}>
 
     <Box style={{}}>
     <Typography style={{color:"black",marginTop:"7px",marginLeft:"10px"}}>    Additional info
@@ -167,7 +167,7 @@ export const Output = ({props}:any):JSX.Element=>{
         <Box>
         <Box style={{marginLeft:"20px"}}>
 
-        <Box sx={{ boxShadow: 5,backgroundColor:"white",marginTop:"0px",padding:"10px",borderRadius:"10px" }} style={hor}>
+        <Box sx={{ boxShadow: 3,backgroundColor:"white",marginTop:"0px",padding:"10px",borderRadius:"10px" }} style={hor}>
          <InfoIcon >
 
          </InfoIcon>
@@ -176,7 +176,7 @@ export const Output = ({props}:any):JSX.Element=>{
 
          </Typography>
          </Box>
-        <Box sx={{ boxShadow: 5,backgroundColor:"white",marginTop:"0px",padding:"10px",borderRadius:"10px" }} style={hor}>
+        <Box sx={{ boxShadow: 3,backgroundColor:"white",marginTop:"0px",padding:"10px",borderRadius:"10px" }} style={hor}>
         <InfoIcon >
 
          </InfoIcon>
@@ -185,7 +185,7 @@ export const Output = ({props}:any):JSX.Element=>{
 
          </Typography>
         </Box>
-        <Box sx={{ boxShadow: 5,backgroundColor:"white",marginTop:"0px",padding:"10px",borderRadius:"10px" }} style={hor}>
+        <Box sx={{ boxShadow: 3,backgroundColor:"white",marginTop:"0px",padding:"10px",borderRadius:"10px" }} style={hor}>
         <InfoIcon >
 
          </InfoIcon>
@@ -195,7 +195,7 @@ export const Output = ({props}:any):JSX.Element=>{
 
          </Typography>
         </Box>
-        <Box sx={{ boxShadow: 5,backgroundColor:"white",marginTop:"0px",padding:"10px",borderRadius:"10px" }} style={hor}>
+        <Box sx={{ boxShadow: 3,backgroundColor:"white",marginTop:"0px",padding:"10px",borderRadius:"10px" }} style={hor}>
         <InfoIcon >
 
          </InfoIcon>
