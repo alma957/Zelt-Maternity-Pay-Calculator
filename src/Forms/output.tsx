@@ -63,7 +63,7 @@ export const Output = ({props}:any):JSX.Element=>{
     }
     if(isValidDate(data.expectedDueDate)) {
     const expectedDueDate = new Date(data.expectedDueDate).getTime()
-    let latestDateToStartWorking = calculateDate(expectedDueDate-3600*1000*24*7*40,0)
+    let latestDateToStartWorking = calculateDate(expectedDueDate-3600*1000*24*7*40,6)
 
     inputProps.icon=startDateValid && new Date(data.employmentStartDate).getTime()<=latestDateToStartWorking ? true : false
     inputProps.text=!startDateValid ? "Please insert a valid employment start date" : `${formatDate(new Date(latestDateToStartWorking).toString().substring(4,15))} `
@@ -191,7 +191,7 @@ export const Output = ({props}:any):JSX.Element=>{
 
          </InfoIcon>
          <Typography style={marginLeft} >
-          {inputProps.validInput ? `Your employee must notify you by ${formatDate(new Date(new Date(data.maternityStart).getTime()-dayMill*28).toString().substring(4,15))} before taking SMP`:"Check your inputs as we are not able to provide you with a date for when your employee should notify you"}
+          {inputProps.validInput ? `Your employee must notify you by ${formatDate(new Date(new Date(data.maternityStart).getTime()-dayMill*28).toString().substring(4,15))} if she wants to start taking SMP on ${formatDate(new Date(data.maternityStart).toString().substring(4,15))}`:"Check your inputs as we are not able to provide you with a date for when your employee should notify you"}
 
          </Typography>
         </Box>
