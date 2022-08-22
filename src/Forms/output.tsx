@@ -52,7 +52,7 @@ export const Output = ({props}:any):JSX.Element=>{
         qualifyingWeekStart:"",
         qualifyingWeekendEnd:"",
         validInput:true,
-        validStartDate:false
+        validStartDate:false 
     }
     const data = props as InputState
     let startDateValid = false
